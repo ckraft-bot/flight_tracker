@@ -1,7 +1,7 @@
-streamlit>=1.34.0
+streamlit==1.46.1
 requests
 pandas
 folium
 streamlit-folium
 python-dotenv
-streamlit-autorefresh
+streamlit_folium==0.24.0

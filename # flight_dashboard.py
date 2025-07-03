@@ -16,7 +16,7 @@ MAP_CENTER = [35.035, -85.203]
 
 # Refresh button
 if st.button("🔄 Refresh Flight Data"):
-    st.experimental_rerun()
+    st.rerun()
 
 # Fetch flight data
 def get_flights(direction: str, iata: str):
