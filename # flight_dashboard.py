@@ -35,26 +35,22 @@ def get_flights(direction: str, iata: str):
         if airline_name not in ALLOWED_AIRLINES:
             continue
 
-        departure = flight.get('departure') or {}
-        arrival = flight.get('arrival') or {}
-        live = flight.get('live') or {}
-
         flights.append({
             'Direction': 'Arrival' if direction == 'arr' else 'Departure',
             'Airline': airline_name,
             'Flight': flight['flight']['iata'],
-            'From': departure.get('iata'),
-            'To': arrival.get('iata'),
-            'Latitude': live.get('latitude'),
-            'Longitude': live.get('longitude'),
-            'Altitude (ft)': live.get('altitude'),
-            'Speed (km/h)': live.get('speed_horizontal'),
-            'Scheduled Departure': departure.get('scheduled'),
-            'Estimated Departure': departure.get('estimated'),
-            'Actual Departure': departure.get('actual'),
-            'Scheduled Arrival': arrival.get('scheduled'),
-            'Estimated Arrival': arrival.get('estimated'),
-            'Actual Arrival': arrival.get('actual'),
+            'From': flight['departure']['iata'],
+            'To': flight['arrival']['iata'],
+            'Latitude': flight.get('live', {}).get('latitude') if flight.get('live') else None,
+            'Longitude': flight.get('live', {}).get('longitude') if flight.get('live') else None,
+            'Altitude (ft)': flight.get('live', {}).get('altitude') if flight.get('live') else None,
+            'Speed (km/h)': flight.get('live', {}).get('speed_horizontal') if flight.get('live') else None,
+            'Scheduled Departure': flight['departure'].get('scheduled'),
+            'Estimated Departure': flight['departure'].get('estimated'),
+            'Actual Departure': flight['departure'].get('actual'),
+            'Scheduled Arrival': flight['arrival'].get('scheduled'),
+            'Estimated Arrival': flight['arrival'].get('estimated'),
+            'Actual Arrival': flight['arrival'].get('actual'),
             'Flight Status': flight.get('flight_status')
         })
 
