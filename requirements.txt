@@ -1,7 +1,3 @@
-streamlit==1.46.1
 requests
 pandas
-folium
-streamlit-folium
-python-dotenv
-streamlit_folium==0.24.0
+loguru==0.7.3

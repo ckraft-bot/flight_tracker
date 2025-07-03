@@ -13,6 +13,7 @@ color = graphics.Color(255, 255, 0)
 
 # Example flight lines
 lines = ["DAL 382 CHA ➜ ATL", "UAL 570 CHA ➜ ORD"]
+
 for i, line in enumerate(lines):
     graphics.DrawText(canvas, font, 1, 10 + i*12, color, line)
 canvas = matrix.SwapOnVSync(canvas)

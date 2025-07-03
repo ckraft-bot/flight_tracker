@@ -14,6 +14,7 @@ st.title("🛫🛬 Local Flight Dashboard")
 DEFAULT_IATA = "CHA"
 MAP_CENTER = [35.035, -85.203]
 ALLOWED_AIRLINES = ['Delta Air Lines', 'United Airlines', 'American Airlines', 'Allegiant Air', 'Spirit Airlines']
+'Flight Status': 'active'
 
 # Refresh button
 if st.button("🔄 Refresh Flight Data"):
