@@ -5,49 +5,7 @@ from config import AVIATION_STACK_API_KEY
 from datetime import datetime
 from loguru import logger
 
-"""
-Full field
-flight.append({  
-    'Direction': 'Arrival' if direction == 'arr' else 'Departure',
-    'Airline': airline_name,
-    'Flight': flight['flight']['iata'],
-    'From': flight['departure']['iata'],
-    'To': flight['arrival']['iata'],
-    'Latitude': flight.get('live', {}).get('latitude') if flight.get('live') else None,
-    'Longitude': flight.get('live', {}).get('longitude') if flight.get('live') else None,
-    'Altitude (ft)': flight.get('live', {}).get('altitude') if flight.get('live') else None,
-    'Speed (km/h)': flight.get('live', {}).get('speed_horizontal') if flight.get('live') else None,
-    'Scheduled Departure': flight['departure'].get('scheduled'),
-    'Estimated Departure': flight['departure'].get('estimated'),
-    'Actual Departure': flight['departure'].get('actual'),
-    'Scheduled Arrival': flight['arrival'].get('scheduled'),
-    'Estimated Arrival': flight['arrival'].get('estimated'),
-    'Actual Arrival': flight['arrival'].get('actual'),
-    'Flight Status': flight.get('flight_status')
-})
-
-
-full_field_columns = [
-'Direction',
-'Airline',
-'Flight',
-'From',
-'To',
-'Latitude',
-'Longitude',
-'Altitude (ft)',
-'Speed (km/h)',
-'Scheduled Departure',
-'Estimated Departure',
-'Actual Departure',
-'Scheduled Arrival',
-'Estimated Arrival',
-'Actual Arrival',
-'Flight Status'
-]
-"""
-
-
+#----------------------------------- Fetch Flights -----------------------------------#
 def get_flights(direction: str, iata: str):
     allowed_airlines = ['Delta Air Lines', 'United Airlines', 'American Airlines', 'Allegiant Air', 'Spirit Airlines']
     
@@ -69,6 +27,25 @@ def get_flights(direction: str, iata: str):
             if flight_status != 'active':
                 continue
             
+            # Full field
+            # flight.append({  
+            #     'Direction': 'Arrival' if direction == 'arr' else 'Departure',
+            #     'Airline': airline_name,
+            #     'Flight': flight['flight']['iata'],
+            #     'From': flight['departure']['iata'],
+            #     'To': flight['arrival']['iata'],
+            #     'Latitude': flight.get('live', {}).get('latitude') if flight.get('live') else None,
+            #     'Longitude': flight.get('live', {}).get('longitude') if flight.get('live') else None,
+            #     'Altitude (ft)': flight.get('live', {}).get('altitude') if flight.get('live') else None,
+            #     'Speed (km/h)': flight.get('live', {}).get('speed_horizontal') if flight.get('live') else None,
+            #     'Scheduled Departure': flight['departure'].get('scheduled'),
+            #     'Estimated Departure': flight['departure'].get('estimated'),
+            #     'Actual Departure': flight['departure'].get('actual'),
+            #     'Scheduled Arrival': flight['arrival'].get('scheduled'),
+            #     'Estimated Arrival': flight['arrival'].get('estimated'),
+            #     'Actual Arrival': flight['arrival'].get('actual'),
+            #     'Flight Status': flight.get('flight_status')
+            # })
             flights.append({
                 'Direction': 'Arrival' if direction == 'arr' else 'Departure',
                 'Airline': airline_name,
@@ -92,7 +69,7 @@ def get_flights(direction: str, iata: str):
 arrivals = get_flights('arr', 'CHA')
 departures = get_flights('dep', 'CHA')
 
-
+#----------------------------------- Plot Flights -----------------------------------#
 # Combine and convert to DataFrame
 if arrivals is None or departures is None:
     logger.error("Terminating due to API limit or error.")
@@ -101,19 +78,6 @@ if arrivals is None or departures is None:
 all_flights = arrivals + departures
 df = pd.DataFrame(all_flights)
 
-"""
-Datetime formatting for full field
-datetime_cols = [
-    'Scheduled Departure', 'Estimated Departure', 'Actual Departure',
-    'Scheduled Arrival', 'Estimated Arrival', 'Actual Arrival'
-]
-
-for col in datetime_cols:
-    df[col] = pd.to_datetime(df[col], errors='coerce')  # convert to datetime, invalid to NaT
-    df[col] = df[col].dt.strftime('%Y-%m-%d %H:%M')    # format datetime as string
-
-df[datetime_cols] = df[datetime_cols].fillna('')
-"""
 
 if df.empty:
     logger.warning("No flights arriving or departing from CHA right now.")
@@ -123,3 +87,27 @@ else:
     logger.info(df.to_string(index=False))
 
 
+#----------------------------------- Display Flights -----------------------------------#
+def format_flight_display(df):
+    """
+    Expected format examples 
+    For departures:
+    "<Flight> <From> ➜ <To>"
+    Example: "UA456 CHA ➜ ORD"
+
+    For arrivals:
+    "<Flight> CHA ➜ <From>" (flip the airports for arrivals to show inbound to CHA)
+    Example: "DL123 CHA ➜ ATL"
+    """
+
+    display = []
+    for _, row in df.iterrows():
+        flight = row['Flight']
+        if row['Direction'] == 'Departure':
+            display.append(f"{flight} {row['From']} ➜ {row['To']}")
+        else:
+            display.append(f"{flight} CHA ➜ {row['From']}")
+    return display
+
+display = format_flight_display(df)
+print(display)
