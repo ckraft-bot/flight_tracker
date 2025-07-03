@@ -34,6 +34,7 @@ def get_flights(direction: str, iata: str):
 arrivals = get_flights('arr', 'CHA')
 departures = get_flights('dep', 'CHA')
 
+
 # Combine and convert to DataFrame
 all_flights = arrivals + departures
 df = pd.DataFrame(all_flights)
@@ -48,6 +49,7 @@ else:
     print("\n🛫🛬 Flights Involving CHA:\n")
     print(df.to_string(index=False))
 
+# Display map
 # if not df.empty:
 #     # Create a Folium map centered roughly at CHA airport coordinates
 #     cha_lat, cha_lon = 35.0442, -85.2017  # CHA coordinates
