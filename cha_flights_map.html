@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_526eec5f4d7ab5fabbfca989a0b7ac8b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_526eec5f4d7ab5fabbfca989a0b7ac8b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_526eec5f4d7ab5fabbfca989a0b7ac8b = L.map(
+                "map_526eec5f4d7ab5fabbfca989a0b7ac8b",
+                {
+                    center: [35.0442, -85.2017],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bb079dc273d7d960d128569f131de512 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bb079dc273d7d960d128569f131de512.addTo(map_526eec5f4d7ab5fabbfca989a0b7ac8b);
+        
+    
+            var circle_marker_b4fc8bb93e54d65b7462b1682e60bc50 = L.circleMarker(
+                [41.89, -73.1226],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_526eec5f4d7ab5fabbfca989a0b7ac8b);
+        
+    
+        var popup_1dbd0bff6e8f766782f89276d6b30698 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4e4282902634a88593beb05cf907365a = $(`<div id="html_4e4282902634a88593beb05cf907365a" style="width: 100.0%; height: 100.0%;">Arrival - Flexjet LXJ346<br>From: PWM<br>To: CHA<br>Altitude: 13106.4 ft<br>Speed: 690.796 km/h</div>`)[0];
+                popup_1dbd0bff6e8f766782f89276d6b30698.setContent(html_4e4282902634a88593beb05cf907365a);
+            
+        
+
+        circle_marker_b4fc8bb93e54d65b7462b1682e60bc50.bindPopup(popup_1dbd0bff6e8f766782f89276d6b30698)
+        ;
+
+        
+    
+    
+            var circle_marker_c42572235362d7e3484a34070748c3f0 = L.circleMarker(
+                [30.7396, -83.5139],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_526eec5f4d7ab5fabbfca989a0b7ac8b);
+        
+    
+        var popup_5b6ea240c973165fd5d437af2c836ad2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9e796ffce632bef9262d57c117852e7a = $(`<div id="html_9e796ffce632bef9262d57c117852e7a" style="width: 100.0%; height: 100.0%;">Arrival - Flexjet LXJ390<br>From: LAL<br>To: CHA<br>Altitude: 13106.4 ft<br>Speed: 770.76 km/h</div>`)[0];
+                popup_5b6ea240c973165fd5d437af2c836ad2.setContent(html_9e796ffce632bef9262d57c117852e7a);
+            
+        
+
+        circle_marker_c42572235362d7e3484a34070748c3f0.bindPopup(popup_5b6ea240c973165fd5d437af2c836ad2)
+        ;
+
+        
+    
+    
+            var circle_marker_9e83d624f48e3d81bccbebaae9fbf54e = L.circleMarker(
+                [34.9088, -85.2491],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_526eec5f4d7ab5fabbfca989a0b7ac8b);
+        
+    
+        var popup_56edb0337951b687619fb200adfc0f97 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_92d4166cb749108348dd6cecc195ba08 = $(`<div id="html_92d4166cb749108348dd6cecc195ba08" style="width: 100.0%; height: 100.0%;">Arrival - United Airlines UA5870<br>From: ORD<br>To: CHA<br>Altitude: 731.52 ft<br>Speed: 303.728 km/h</div>`)[0];
+                popup_56edb0337951b687619fb200adfc0f97.setContent(html_92d4166cb749108348dd6cecc195ba08);
+            
+        
+
+        circle_marker_9e83d624f48e3d81bccbebaae9fbf54e.bindPopup(popup_56edb0337951b687619fb200adfc0f97)
+        ;
+
+        
+    
+    
+            var circle_marker_88f556b81afeed69a1b0775816676359 = L.circleMarker(
+                [34.6959, -85.0884],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(map_526eec5f4d7ab5fabbfca989a0b7ac8b);
+        
+    
+        var popup_31f2aaad562eda51906ae50ef74b95be = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28b7f8985becaee43f02a395d31dfa49 = $(`<div id="html_28b7f8985becaee43f02a395d31dfa49" style="width: 100.0%; height: 100.0%;">Arrival - Allegiant Air G41221<br>From: SFB<br>To: CHA<br>Altitude: 2133.6 ft<br>Speed: 505.596 km/h</div>`)[0];
+                popup_31f2aaad562eda51906ae50ef74b95be.setContent(html_28b7f8985becaee43f02a395d31dfa49);
+            
+        
+
+        circle_marker_88f556b81afeed69a1b0775816676359.bindPopup(popup_31f2aaad562eda51906ae50ef74b95be)
+        ;
+
+        
+    
+</script>
+</html>
