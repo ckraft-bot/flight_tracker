@@ -8,9 +8,9 @@ My house is about 3 miles from the airport, and I often hear or see planes direc
 # Building the Zone
 
 - **Radius**: r = 3 miles
-- **Diameter**: d = 2 × 3 = 6 miles
-- **Circumference** = 2 × π × 3 ≈ 6 × 3.1416 ≈ **18.85 miles**
-- **Area** = π × 3² = π × 9 ≈ 3.1416 × 9 ≈ **28.27 square miles**
+- **Diameter**: d = 2r -> 2 x 3 = **6 miles**
+- **Circumference** = 2πr -> 2rπ -> d × π  -> 6 × 3.1416 ≈ **18.85 miles**
+- **Area** = πr² -> π × 3² -> ≈ 3.1416 × 9 ≈ **28.27 square miles**
 
 ![image]()
 
