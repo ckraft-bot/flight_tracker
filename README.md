@@ -1,27 +1,19 @@
 # flright_tracker
 My house is 3 miles from the airport.
-![image](Media\distance_to_airport.png)
+![image](Media/distance_to_airport.png)
 
 
-## Building the zone
+# Building the Zone
 
-- **Radius**: `r = 3 miles`
-- **Diameter**:  
-  \[
-  \text{Diameter} = 2 \times 3 = 6 \text{ miles}
-  \]
+- **Radius**: r = 3 miles
+- **Diameter**: Diameter = 2 × 3 = 6 miles
 
 ## Circumference
 
-\[
-\text{Circumference} = 2 \times \pi \times 3 \approx 6 \times 3.1416 \approx 18.85 \text{ miles}
-\]
+Circumference = 2 × π × 3 ≈ 6 × 3.1416 ≈ **18.85 miles**
 
 ## Area
 
-\[
-\text{Area} = \pi \times 3^2 = \pi \times 9 \approx 3.1416 \times 9 \approx 28.27 \text{ square miles}
-\]
+Area = π × 3² = π × 9 ≈ 3.1416 × 9 ≈ **28.27 square miles**
 
-
-![image]()
+![image](Media/zone_graph.png)
