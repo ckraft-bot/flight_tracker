@@ -1,4 +1,4 @@
-# flright_tracker
+# flight_tracker
 ## Background
 My house is about 3 miles from the airport, and I often hear or see planes directly overhead. I’m using this 3-mile range as a reference point for building the zone—it’s likely the area where aircraft activity is most noticeable to me. 
 
