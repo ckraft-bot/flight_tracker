@@ -77,7 +77,7 @@ if arrivals is None or departures is None:
 
 all_flights = arrivals + departures
 df = pd.DataFrame(all_flights)
-df.to_csv("flights.csv", index=False)
+# df = pd.read_csv('flights.csv')
 
 
 if df.empty:
