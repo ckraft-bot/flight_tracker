@@ -77,6 +77,7 @@ if arrivals is None or departures is None:
 
 all_flights = arrivals + departures
 df = pd.DataFrame(all_flights)
+df.to_csv("flights.csv", index=False)
 
 
 if df.empty:
@@ -87,17 +88,18 @@ else:
     logger.info(df.to_string(index=False))
 
 
+
 #----------------------------------- Display Flights -----------------------------------#
 def format_flight_display(df):
     """
     Expected format examples 
     For departures:
-    "<Flight> <From> ➜ <To>"
+    "<Flight Number> <Airport Code> ➜ <Airport Code>"
     Example: "UA456 CHA ➜ ORD"
 
     For arrivals:
     "<Flight> CHA ➜ <From>" (flip the airports for arrivals to show inbound to CHA)
-    Example: "DL123 CHA ➜ ATL"
+    Example: "DL123 ATL ➜ CHA"
     """
 
     display = []
