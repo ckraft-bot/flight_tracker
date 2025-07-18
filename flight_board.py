@@ -2,41 +2,34 @@ import flight_tracker
 from flight_tracker import get_flights, format_flight_display
 from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 import pandas as pd
+from loguru import logger
 
-# # Fetch flights and prepare display list
-# arrivals = get_flights('arr', 'CHA')
-# departures = get_flights('dep', 'CHA')
-
-# if arrivals is None or departures is None:
-#     print("API limit reached or error, exiting.")
-#     exit(1)
-
-# all_flights = arrivals + departures
-
-# df = pd.DataFrame(all_flights)
-
-# if df.empty:
-#     print("No flights found, exiting.")
-#     exit(1)
-
-# df.columns = ['Direction', 'Airline', 'Flight', 'From', 'To']
-
-# Workaround for API limit reached error, read in a local CSV file instead of fetching from the API
-df = pd.read_csv('flights.csv')
+# Fetch flights and prepare display list
+try:
+    arrivals = get_flights('arr', 'CHA')
+    departures = get_flights('dep', 'CHA')
+    if arrivals is None or departures is None:
+        raise ValueError("API limit or error")
+    all_flights = arrivals + departures
+    df = pd.DataFrame(all_flights)
+    if df.empty:
+        raise ValueError("No flights returned")
+except:
+    logger.warning("Using fallback CSV due to API issue.")
+    df = pd.read_csv('flights.csv')
 
 
 def format_flight_display(df):
     """
     Expected format examples 
     For departures:
-    "<Flight Number> <Airport Code> ➜ <Airport Code>"
+    "<Flight Number> <From> ➜ <To>"
     Example: "UA456 CHA ➜ ORD"
 
     For arrivals:
     "<Flight> CHA ➜ <From>" (flip the airports for arrivals to show inbound to CHA)
-    Example: "DL123 ATL ➜ CHA"
+    Example: "DL123 CHA ➜ ATL"
     """
-
     display = []
     for _, row in df.iterrows():
         flight = row['Flight']
