@@ -1,6 +1,6 @@
 import flight_tracker
 from flight_tracker import get_flights, format_flight_display
-from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
+# from rgbmatrix import RGBMatrix, RGBMatrixOptions, graphics
 import pandas as pd
 
 # Fetch flights and prepare display list
