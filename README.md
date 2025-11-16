@@ -23,4 +23,6 @@ The airport near me is quite small with just 5 commercial airlines: Delta, Unite
 2. Then using the table it formats the content like so
 ![refromatted output](Media/output_text.png)
 3. Finally this will be the image you see diplayed on the led matrix board
-![board display](Media/output_on_led.mov)
+![LED demo](Media/output_on_led.gif)
+
+
