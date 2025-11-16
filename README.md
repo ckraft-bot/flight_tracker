@@ -21,6 +21,6 @@ The airport near me is quite small with just 5 commercial airlines: Delta, Unite
 1. First it places the api results into a table, here's the first row of that table
 ![extracted output](Media/output_table_index1.png)
 2. Then using the table it formats the content like so
-![refromatted output](Media/Media\output_text.png.png)
+![refromatted output](Media/output_text.png)
 3. Finally this will be the image you see diplayed on the led matrix board
-![board display](Media/Media\output_on_led.mov)
+![board display](Media/output_on_led.mov)
