@@ -16,3 +16,11 @@ My house is about 3 miles from the airport, and I often hear or see planes direc
 
 ## Research on the Local Airport
 The airport near me is quite small with just 5 commercial airlines: Delta, United, American, Allegiant, and Spirit with 14 total routes divided amongst 9 states. The airport underwent renovation recently. It has 8 gates; 2 runways; 1 parking garage (with a level of rental cars), 1 short term lot, 2 long term lots containing a Tesla supercharger station and an EV charging station, 1 cellphone lot; 1 baggage claim area; 1 security checkpoint; and an area of 950 acres (390 hectares).
+
+## Scraping live data
+1. First it places the api results into a table, here's the first row of that table
+![extracted output](Media/output_table_index1.png)
+2. Then using the table it formats the content like so
+![refromatted output](Media/Media\output_text.png.png)
+3. Finally this will be the image you see diplayed on the led matrix board
+![board display](Media/Media\output_on_led.mov)
