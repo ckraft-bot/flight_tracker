@@ -92,21 +92,21 @@ def format_flight_display(df):
     """
     Expected format examples 
     For departures:
-    "<Flight> <From> ➜ <To>"
-    Example: "UA456 CHA ➜ ORD"
+    "<Flight> <From> > <To>"
+    Example: "UA456 CHA > ORD"
 
     For arrivals:
-    "<Flight> CHA ➜ <From>" (flip the airports for arrivals to show inbound to CHA)
-    Example: "DL123 CHA ➜ ATL"
+    "<Flight> CHA > <From>" (flip the airports for arrivals to show inbound to CHA)
+    Example: "DL123 CHA > ATL"
     """
 
     display = []
     for _, row in df.iterrows():
         flight = row['Flight']
         if row['Direction'] == 'Departure':
-            display.append(f"{flight} {row['From']} ➜ {row['To']}")
+            display.append(f"{flight} {row['From']} > {row['To']}")
         else:
-            display.append(f"{flight} CHA ➜ {row['From']}")
+            display.append(f"{flight} CHA > {row['From']}")
     return display
 
 display = format_flight_display(df)
